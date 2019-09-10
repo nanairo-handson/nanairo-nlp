@@ -19,8 +19,9 @@ def main():
         for token in one_morph:
             freq_morph[token] += 1
     texts = [[token for token in text if freq_morph[token] > 1] for text in morph_df]
-    dictionary = gs.corpora.Dictionary(texts)
     nowdt = dt.datetime.today().strftime("%Y%m%d%H%M")
+    dictionary = gs.corpora.Dictionary(texts)
+    dictionary.save_as_text('./output/result_sum_'+nowdt+'.txt')
     corpus = [dictionary.doc2bow(text) for text in texts]
     lda = gs.models.LdaModel(corpus=corpus, id2word=dictionary, num_topics=5, minimum_probability=0.001, passes=20, update_every=0, chunksize=10000)
     print('=================  LDA RESULTS  =================')
