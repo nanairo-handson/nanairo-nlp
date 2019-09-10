@@ -1,4 +1,4 @@
-# テストデータをロードする
+# 形態素解析を行いLDAでトピックモデルを構成する。
 
 import pandas as pd
 import codecs as cd
@@ -8,7 +8,7 @@ import collections as cl
 import datetime as dt
 
 def main():
-    with cd.open("./test/sample_data.csv", "r", "Shift-JIS", "ignore") as file:
+    with cd.open("./input/dataset.csv", "r", "Shift-JIS", "ignore") as file:
         df = pd.read_table(file,header=None)
     juman = pk.Juman(jumanpp=False)
     morph_df = []
@@ -21,7 +21,6 @@ def main():
     texts = [[token for token in text if freq_morph[token] > 1] for text in morph_df]
     dictionary = gs.corpora.Dictionary(texts)
     nowdt = dt.datetime.today().strftime("%Y%m%d%H%M")
-    dictionary.save_as_text('./test/sample_result_'+nowdt+'.dict.txt')
     corpus = [dictionary.doc2bow(text) for text in texts]
     lda = gs.models.LdaModel(corpus=corpus, id2word=dictionary, num_topics=5, minimum_probability=0.001, passes=20, update_every=0, chunksize=10000)
     print('=================  LDA RESULTS  =================')
@@ -34,7 +33,7 @@ def main():
     for tpd in lda[corpus]:
         tpds.append(tpd)
         print(tpd)
-    pd.DataFrame(tpds).to_csv('./test/result_topic_'+nowdt+'.csv')
+    pd.DataFrame(tpds).to_csv('./output/result_topic_'+nowdt+'.csv')
     print('================= TFIDF RESULTS =================')
     print('=================TFIDF CALCULATE=================')
     texts_tfidf = []
@@ -45,10 +44,7 @@ def main():
         texts_tfidf.append(text_tfidf)
     for text in texts_tfidf:
         print(text)
-    pd.DataFrame(texts_tfidf).to_csv('./test/result_tfidf_'+nowdt+'.csv')
-
-
-
+    pd.DataFrame(texts_tfidf).to_csv('./output/result_tfidf_'+nowdt+'.csv')
 # main関数呼び出し
 if __name__ == "__main__":
     main()
