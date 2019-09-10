@@ -4,7 +4,9 @@ NANAIRO HANDS-ON NLP TOOL
 ## HOW TO SETUP
 1. JUMAN, KNPをインストールする(インストーラーを利用する)
 1. pyknpをインストールする(ディレクトリ内で`python setup.py install`)
+1. jmespath.pyをインストールする(ディレクトリ内で`python setup.py install`)
 1. botocoreをインストールする(ディレクトリ内で`python setup.py install`)
+1. s3transferをインストールする(ディレクトリ内で`python setup.py install`)
 1. boto3をインストールする(ディレクトリ内で`python setup.py install`)
 1. smart_openをインストールする(ディレクトリ内で`python setup.py install`)
 1. gensimをインストールする(ディレクトリ内で`python setup.py install`)
