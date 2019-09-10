@@ -22,5 +22,5 @@ NANAIRO HANDS-ON NLP TOOL
 1. 実行結果を`output`フォルダ内で確認する
 
 ## もし動かない場合
-* `test.py`もしくは`analyze.py`のパス設定が違っている可能性がある
+* `test.py`もしくは`analyze.py`のファイル読み込みパス設定が違っている可能性がある
 * その場合には適宜パスを書き換えて下さい
