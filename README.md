@@ -12,7 +12,7 @@ NANAIRO HANDS-ON NLP TOOL
 1. analyze.pyでLDAとTFIDF分析を実行する
 
 ## test.pyが動作するかを試す
-1. `test`フォルダに`sample_data.csv`と命名しなおしたテストデータを挿入する
+1. `test`フォルダに`sample_data.csv`と命名しなおしたテストデータを入れる
 1. `python test.py`をコマンドラインで実行する
 1. 実行結果が表示されればOK!
 
@@ -22,5 +22,5 @@ NANAIRO HANDS-ON NLP TOOL
 1. 実行結果を`output`フォルダ内で確認する
 
 ## もし動かない場合
-* `test.py`もしくは`analyze.py`のパス設定が違っている可能性がある。
-* その場合には適宜パスを書き換えて下さい。
+* `test.py`もしくは`analyze.py`のパス設定が違っている可能性がある
+* その場合には適宜パスを書き換えて下さい
